@@ -4,14 +4,23 @@ export default function Form() {
         let lastName = document.getElementById('lastName').value;
         let phoneNumber = document.getElementById('phoneNumber').value;
 
-        let newRow = document.createElement('tr');
-        newRow.innerHTML = ' \
-        <td class="text-white border border-gray-400 pl-1">' + firstName + '</td> \
-        <td class="text-white border border-gray-400 pl-1">' + lastName + '</td> \
-        <td class="text-white border border-gray-400 pl-1">' + phoneNumber + '</td> \
-        ';
+        if(firstName != '' && lastName != '' && phoneNumber != '') {
+            let newRow = document.createElement('tr');
+            newRow.innerHTML = ' \
+                <td class="text-white border border-gray-400 pl-1">' + firstName + '</td> \
+                <td class="text-white border border-gray-400 pl-1">' + lastName + '</td> \
+                <td class="text-white border border-gray-400 pl-1">' + phoneNumber + '</td> \
+            ';
 
-        document.getElementById('phoneBookTable').appendChild(newRow);
+            document.getElementById('phoneBookTable').appendChild(newRow);
+            clearInputFields();
+        }
+    }
+    
+    function clearInputFields() {
+        document.getElementById('firstName').value = '';
+        document.getElementById('lastName').value = '';
+        document.getElementById('phoneNumber').value = '';
     }
 
     return (
