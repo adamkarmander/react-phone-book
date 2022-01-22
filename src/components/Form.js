@@ -19,13 +19,22 @@ export default function Form() {
     }
     
     function sortByLastName() {
-        while(true) {
+        let switching = true;
+        let shouldSwitch, i;
+
+        while(switching) {
+            switching = false;
             let rows = document.getElementsByClassName('dataRow');
-            for(let i = 0; i < rows.length; i++) {
+            for(i = 0; i < rows.length - 1; i++) {
+                shouldSwitch = false;
                 if(rows[i + 1].getElementsByTagName("td")[1].innerHTML.toLowerCase() < rows[i].getElementsByTagName("td")[1].innerHTML.toLowerCase()) {
-                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    shouldSwitch = true;
                     break;
                 }
+            }
+            if(shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
             }
         }
     }
