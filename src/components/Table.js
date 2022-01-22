@@ -7,11 +7,6 @@ export default function Table() {
                     <th className="text-white border border-gray-400 bg-gray-700">Last name</th>
                     <th className="text-white border border-gray-400 bg-gray-700">Phone number</th>
                 </tr>
-                <tr>
-                    <td className="text-white border border-gray-400 pl-1">Adam</td>
-                    <td className="text-white border border-gray-400 pl-1">Kärmander</td>
-                    <td className="text-white border border-gray-400 pl-1">0738433504</td>
-                </tr>
             </table>
         </div>
     );

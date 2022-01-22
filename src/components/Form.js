@@ -4,19 +4,32 @@ export default function Form() {
         let lastName = document.getElementById('lastName').value;
         let phoneNumber = document.getElementById('phoneNumber').value;
 
-        if(firstName != '' && lastName != '' && phoneNumber != '') {
+        if(firstName !== '' && lastName !== '' && phoneNumber !== '') {
             let newRow = document.createElement('tr');
-            newRow.innerHTML = ' \
-                <td class="text-white border border-gray-400 pl-1">' + firstName + '</td> \
-                <td class="text-white border border-gray-400 pl-1">' + lastName + '</td> \
-                <td class="text-white border border-gray-400 pl-1">' + phoneNumber + '</td> \
-            ';
+            newRow.className="dataRow";
+            newRow.innerHTML = 
+                '<td class="text-white border border-gray-400 pl-1">' + firstName + '</td>' +
+                '<td class="text-white border border-gray-400 pl-1">' + lastName + '</td>' +
+                '<td class="text-white border border-gray-400 pl-1">' + phoneNumber + '</td>';
 
             document.getElementById('phoneBookTable').appendChild(newRow);
             clearInputFields();
+            sortByLastName();
         }
     }
     
+    function sortByLastName() {
+        while(true) {
+            let rows = document.getElementsByClassName('dataRow');
+            for(let i = 0; i < rows.length; i++) {
+                if(rows[i + 1].getElementsByTagName("td")[1].innerHTML.toLowerCase() < rows[i].getElementsByTagName("td")[1].innerHTML.toLowerCase()) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    break;
+                }
+            }
+        }
+    }
+
     function clearInputFields() {
         document.getElementById('firstName').value = '';
         document.getElementById('lastName').value = '';
