@@ -4,7 +4,8 @@ export default function Form() {
         let lastName = document.getElementById('lastName').value;
         let phoneNumber = document.getElementById('phoneNumber').value;
 
-        if(firstName !== '' && lastName !== '' && phoneNumber !== '') {
+        if(firstName !== '' && firstName.match(/^[a-zA-ZäöåÄÖÅ]+$/) && lastName !== '' && lastName.match(/^[a-zA-ZäöåÄÖÅ]+$/)
+        && phoneNumber !== '' && phoneNumber.match(/^\d{10}$/)) {
             let newRow = document.createElement('tr');
             newRow.className="dataRow";
             newRow.innerHTML = 
