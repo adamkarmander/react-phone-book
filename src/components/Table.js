@@ -1,5 +1,18 @@
 export default function Table() {
     return (
-        <div></div>
+        <div className="w-full flex justify-center items-center">
+            <table className="w-8/12 border-collapse" id="phoneBookTable">
+                <tr>
+                    <th className="text-white border border-gray-400 bg-gray-700">First name</th>
+                    <th className="text-white border border-gray-400 bg-gray-700">Last name</th>
+                    <th className="text-white border border-gray-400 bg-gray-700">Phone number</th>
+                </tr>
+                <tr>
+                    <td className="text-white border border-gray-400 pl-1">Adam</td>
+                    <td className="text-white border border-gray-400 pl-1">Kärmander</td>
+                    <td className="text-white border border-gray-400 pl-1">0738433504</td>
+                </tr>
+            </table>
+        </div>
     );
 }
